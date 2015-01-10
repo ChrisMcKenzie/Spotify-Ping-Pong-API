@@ -9,6 +9,8 @@ api.on('request', function (req, res) {
     var encodedPing = req.url.substr(1);
     var ping = encodedPing.replace(/-/g, ' ');
 
+    res.setHeader('Content-type', 'application/json');
+
     if (!pingSchema.test(ping)) {
         res.end('{"status":201}');
         return;
